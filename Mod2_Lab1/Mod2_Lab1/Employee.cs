@@ -2,7 +2,7 @@
 
 namespace Mod2_Lab1
 {
-    class Employee
+    abstract class Employee
     {
         // 3 private member variables: Name, Salary and id
         private string empName;
@@ -14,7 +14,7 @@ namespace Mod2_Lab1
         public int ID { get => empId; set => empId = value; }
 
         // creates integer variable called empCount and assigns value to 1
-        private static int empCount = 1;
+        private static int empCount = 0;
 
         // constructor
         public Employee(string name, double baseSalary)
@@ -22,7 +22,7 @@ namespace Mod2_Lab1
             this.Name = name;
             this.BaseSalary = baseSalary;
 
-            this.ID = empCount++;
+            this.ID = ++empCount;
         }
 
         // this method returns the employee's base salary
@@ -49,10 +49,7 @@ namespace Mod2_Lab1
             return this.Name + " (" + this.ID + ")";
         }
 
-        // this method returns the employee's ID and Name and confirms that the employee is in the system
-        public virtual string employeeStatus()
-        {
-            return this.toString() + " is in the company's system";
-        }
+        // abstract method
+        public abstract string employeeStatus();
     }
 }

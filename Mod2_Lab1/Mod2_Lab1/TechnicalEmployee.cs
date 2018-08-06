@@ -18,7 +18,7 @@ namespace Mod2_Lab1
 
         public override string employeeStatus()
         {
-            return this.toString() + " has " + this.successfulCheckIns + "successfull check ins";
+            return this.toString() + " has " + this.successfulCheckIns + " successful check ins";
         }
     }
 }
