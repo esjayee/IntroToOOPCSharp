@@ -5,7 +5,8 @@ namespace Mod2_SelfAssess
     abstract class Person
     {
         // variables
-        private static int id = 0;
+        protected static int id = 0;
+        protected int person_id;
 
         // properties
         public string Forename { get; set; }
@@ -15,17 +16,23 @@ namespace Mod2_SelfAssess
         public string Address { get; set; }
         public string Postcode { get; set; } = "ZZ99 3WZ";
 
-        public string phoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
 
         public Person()
         {
             ++id;
+            person_id = id;
         }
 
         public Person(string forename, string surname) : this()
         {
             this.Forename = forename;
             this.Surname = surname;
+        }
+
+        public Person(string forename, string surname, DateTime dob) : this(forename, surname)
+        {
+            this.Dob = dob;
         }
 
         public string Name
@@ -40,7 +47,7 @@ namespace Mod2_SelfAssess
         {
             get
             {
-                int age = -1;
+                int age = 0;
 
                 if (Dob.Year > 0001)
                 {
@@ -56,7 +63,7 @@ namespace Mod2_SelfAssess
 
         public override string ToString()
         {
-            return $"{Name} aged {Age}\nLives at {Address}, {Postcode}";
+            return $"Name: {Name}\nAge: {Age:##}\nAddress: {Address}, {Postcode}";
         }
     }
 }
